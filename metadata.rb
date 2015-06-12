@@ -8,4 +8,4 @@ version          '0.1.0'
 
 supports         'ubuntu'
 
-depends          'httpd'
+depends 'httpd', '~> 0.2'
