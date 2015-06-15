@@ -18,11 +18,24 @@
 #
 
 httpd_service 'reverser.atsodius.com' do
-  instance_name 'reverser'
+  action :create
+
+  instance 'reverser'
   servername 'reverser.atsodius.com'
   version '2.4'
   mpm 'event'
   threadlimit '4096'
   listen_ports ['80', '8080', '9443', '443' ]
-  action :create
+    
+  modules [
+    proxy_module,
+    proxy_http_module,
+    proxy_ftp_module,
+    proxy_connect_module,
+    headers_module,
+    deflate_module,
+    xml2enc_module,
+    proxy_html_module
+    ]
 end
+
