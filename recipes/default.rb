@@ -28,14 +28,14 @@ httpd_service 'reverser.atsodius.com' do
   listen_ports ['80', '8080', '9443', '443' ]
     
   modules [
-    proxy_module,
-    proxy_http_module,
-    proxy_ftp_module,
-    proxy_connect_module,
-    headers_module,
-    deflate_module,
-    xml2enc_module,
-    proxy_html_module
+    'proxy_module',
+    'proxy_http_module',
+    'proxy_ftp_module',
+    'proxy_connect_module',
+    'headers_module',
+    'deflate_module',
+    'xml2enc_module',
+    'proxy_html_module'
     ]
 end
 
