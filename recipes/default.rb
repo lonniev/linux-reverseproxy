@@ -44,3 +44,8 @@ end
       end
       
     }
+
+httpd_service 'reverser.atsodius.com' do
+  action :start
+end
+    
