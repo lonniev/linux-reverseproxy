@@ -27,15 +27,20 @@ httpd_service 'reverser.atsodius.com' do
   threadlimit '4096'
   listen_ports ['80', '8080', '9443', '443' ]
     
-#  modules [
-#    'proxy_module',
-#    'proxy_http_module',
-#    'proxy_ftp_module',
-#    'proxy_connect_module',
-#    'headers_module',
-#    'deflate_module',
-#    'xml2enc_module',
-#    'proxy_html_module'
-#    ]
 end
 
+%w( proxy
+    proxy_http
+    proxy_ftp 
+    proxy_connect
+    headers
+    deflate 
+    xml2enc
+    proxy_html
+).each { |mod|
+  
+      httpd_module mod do
+        instance 'reverser'
+      end
+      
+    }
